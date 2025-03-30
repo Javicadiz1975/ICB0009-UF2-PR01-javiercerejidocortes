@@ -1,0 +1,21 @@
+using System;
+
+public class Paciente
+{
+    private static Random random = new Random();
+
+    public int Id { get; set; }
+    public int LlegadaHospital { get; set; }
+    public int TiempoConsulta { get; set; }
+    public Estado Estado { get; set; }
+    public bool RequiereDiagnostico { get; set; }
+
+    public Paciente(int id, int llegadaHospital, int tiempoConsulta)
+    {
+        Id = id == 0 ? random.Next(1, 101) : id;
+        LlegadaHospital = llegadaHospital;
+        TiempoConsulta = tiempoConsulta;
+        Estado = Estado.EsperaConsulta;
+        RequiereDiagnostico = random.Next(2) == 0; // 50% posibilidad
+    }
+}
